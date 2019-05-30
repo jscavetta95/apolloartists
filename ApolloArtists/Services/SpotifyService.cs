@@ -18,6 +18,7 @@ namespace ApolloArtists.Services
 
         private string ClientId => configuration["Spotify:ClientId"];
         private string SecretKey => configuration["Spotify:SecretKey"];
+
         private Token Token => token.IsExpired() ? new CredentialsAuth(ClientId, SecretKey).GetToken().Result : token;
 
         public SpotifyWebAPI SpotifyWebApi => new SpotifyWebAPI{TokenType = Token.TokenType, AccessToken = Token.AccessToken};

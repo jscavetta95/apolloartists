@@ -13,9 +13,11 @@ namespace ApolloArtists
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        public Startup()
         {
-            Configuration = configuration;
+            var builder = new ConfigurationBuilder()
+               .AddJsonFile("secrets.json");
+            Configuration = builder.Build();
         }
 
         public IConfiguration Configuration { get; }
@@ -35,8 +37,7 @@ namespace ApolloArtists
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             var connection = Configuration["GearHost:ConnectionString"];
-            services.AddDbContext<ApolloArtistsContext>(options => options.UseSqlServer(connection)); 
-
+            services.AddDbContext<ApolloArtistsContext>(options => options.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
