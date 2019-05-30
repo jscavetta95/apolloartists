@@ -1,37 +1,137 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
-for details on configuring this project to bundle and minify static web assets. */
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿body {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    padding-top: 51px;
+    padding-bottom: 40px;
+    height: 100%;
+    width: 100%
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
+footer
+{
+    border-top: 1px solid black;
+    padding: 9px 0 0 10px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.no-float {
+    float: none;
+}
+
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
-/* Carousel */
-.carousel-caption p {
-    font-size: 20px;
-    line-height: 1.4;
-}
-
-/* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"] {
+    margin-top: 20px;
     width: 100%;
+    height: 100%;
 }
 
-/* QR code generator */
-#qrCode {
-    margin: 15px;
+#artistMap {
+    height: 90%;
 }
 
-/* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
-    /* Hide captions */
-    .carousel-caption {
-        display: none;
+#artistPanel {
+    height: 100%;
+}
+
+.navbar {
+    background-color: transparent;
+    border: transparent;
+    font-size: large;
+}
+
+.navbar-logo {
+    color: black;
+    font-size: 30px;
+    text-align: center;
+}
+
+    .navbar-logo:hover {
+        color: black;
+        text-decoration: none; 
     }
+
+.navbar-item {
+    color: black !important;
+    font-size: 20px;
+    text-align: center;
+}
+
+    .navbar-item:hover {
+        text-decoration: none; 
+    }
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: black;
+    overflow-x: hidden;
+    padding-top: 51px;
+    transition: 0.3s;
+}
+
+#likeButton, #passButton {
+    position: relative;
+    text-align: center;
+    width: 330px;
+    height: 50px;
+    margin: 10px 10px
+}
+
+#artistPanel > h2 {
+    font-size: 20px;
+    text-align: center;
+    color: white;
+}
+
+.ui-autocomplete {
+    max-height: 600px;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0;
+}
+
+.ui-menu-item {
+    border: 1px solid black;
+    background: white;
+    height: 102px;
+}
+
+.ui-menu-item > p {
+    text-align: center;
+    line-height:100px;
+    font-size: large;
+    font-weight: bold;
+}
+
+.ui-menu-item > img {
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+.ui-menu-item:hover {
+    background: silver;
+}
+
+.ui-helper-hidden-accessible {
+    position: absolute;
+    bottom: 50px;
+    left: 10px;
+}
+
+.ui-helper-hidden-accessible {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
 }

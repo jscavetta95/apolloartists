@@ -1,5 +1,3 @@
-using System;
-
 namespace ApolloArtists.Models
 {
     public class ErrorViewModel

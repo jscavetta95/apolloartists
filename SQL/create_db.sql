@@ -1,0 +1,37 @@
+DROP TABLE IF EXISTS LikedArtists;
+DROP TABLE IF EXISTS PassedArtists;
+DROP TABLE IF EXISTS Artists;
+DROP TABLE IF EXISTS Users;
+
+CREATE TABLE Artists (
+    ArtistId INT IDENTITY(1,1) NOT NULL,
+    Href VARCHAR(500) UNIQUE NOT NULL,
+    Image VARCHAR(500) NOT NULL,
+    Name VARCHAR(500) NOT NULL,
+	CONSTRAINT PK_Artists PRIMARY KEY (ArtistId),
+	CONSTRAINT UC_Artists_Href UNIQUE (Href)
+);
+
+CREATE TABLE Users (
+    UserId INT IDENTITY(1,1) NOT NULL,
+    Email VARCHAR(500) NOT NULL,
+    Password VARCHAR(500) NOT NULL,
+	CONSTRAINT PK_Users PRIMARY KEY (UserId),
+	CONSTRAINT UC_Users_Email UNIQUE (Email)
+);
+
+CREATE TABLE LikedArtists (
+    UserId INT NOT NULL,
+    ArtistId INT NOT NULL,
+	CONSTRAINT PK_LikedArtists PRIMARY KEY (UserId, ArtistId),
+	CONSTRAINT FK_LikedArtists_ArtistId FOREIGN KEY (ArtistId) REFERENCES Artists(ArtistId),
+	CONSTRAINT FK_LikedArtists_Users FOREIGN KEY (UserId) REFERENCES Users(UserId)
+);
+
+CREATE TABLE PassedArtists (
+    UserId INT NOT NULL,
+    ArtistId INT NOT NULL,
+	CONSTRAINT PK_PassedArtists PRIMARY KEY (UserId, ArtistId),
+	CONSTRAINT FK_PassedArtists_ArtistId FOREIGN KEY (ArtistId) REFERENCES Artists(ArtistId),
+	CONSTRAINT FK_PassedArtists_Users FOREIGN KEY (UserId) REFERENCES Users(UserId)
+);

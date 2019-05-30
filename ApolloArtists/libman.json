@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "vis@4.21.0",
+      "destination": "wwwroot/js/vis/",
+      "files": [
+        "vis.min.js",
+        "vis.min.css"
+      ]
+    }
+  ]
+}
