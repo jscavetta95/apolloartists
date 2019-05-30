@@ -34,10 +34,12 @@ namespace ApolloArtists.Controllers
                     HttpContext.Session.SetInt32("UserId", user.UserId);
                     return RedirectToAction(nameof(ArtistMapController.Index), "ArtistMap");
                 }
+
+                HttpContext.Session.SetString("LoginMessage", "Invalid password.");
             }
             catch (Exception)
             {
-                // ignored
+                HttpContext.Session.SetString("LoginMessage", "Email does not exist.");
             }
 
             return View();
@@ -61,6 +63,7 @@ namespace ApolloArtists.Controllers
             }
             else
             {
+                HttpContext.Session.SetString("LoginMessage", "Email already taken.");
                 return View();
             }
 

@@ -1,4 +1,5 @@
-﻿@model ApolloArtists.Models.Users
+﻿@using Microsoft.AspNetCore.Http
+@model ApolloArtists.Models.Users
 
 @{
     ViewData["Title"] = "Login";
@@ -28,4 +29,10 @@
             </p>
         </div>
     </form>
+    
+    <div>
+        <p>
+            @Context.Session.GetString("LoginMessage")
+        </p>
+    </div>
 </div>
